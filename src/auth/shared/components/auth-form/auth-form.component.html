@@ -3,12 +3,18 @@
     <ng-content select="h1"></ng-content>
 
     <label>
-      <input type="email" placeholder="Email address" formControlName="email" />
+      <input
+        type="email"
+        autocomplete="username"
+        placeholder="Email address"
+        formControlName="email"
+      />
     </label>
 
     <label>
       <input
-        type="text"
+        type="password"
+        autocomplete="current-password"
         placeholder="Enter password"
         required
         formControlName="password"

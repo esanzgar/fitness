@@ -1,4 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy
+} from "@angular/core";
 import {
   FormBuilder,
   Validators,
@@ -8,12 +14,13 @@ import {
 
 @Component({
   selector: "fitness-auth-form",
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: "./auth-form.component.html",
   styleUrls: ["./auth-form.component.scss"]
 })
 export class AuthFormComponent implements OnInit {
   @Output()
-  submit = new EventEmitter<FormGroup>();
+  submitted = new EventEmitter<FormGroup>();
 
   auth = this._fb.group({
     email: [null, Validators.email],
@@ -29,6 +36,7 @@ export class AuthFormComponent implements OnInit {
     const control = this.auth.get("password") as AbstractControl;
     return control.touched && control.hasError("required");
   }
+
   constructor(private _fb: FormBuilder) {}
 
   ngOnInit() {}
@@ -37,6 +45,6 @@ export class AuthFormComponent implements OnInit {
     if (this.auth.invalid) {
       return;
     }
-    this.submit.emit(this.auth);
+    this.submitted.emit(this.auth);
   }
 }

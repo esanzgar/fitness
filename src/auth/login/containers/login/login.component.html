@@ -1,7 +1,10 @@
-<fitness-auth-form>
+<fitness-auth-form (submitted)="login($event)">
   <h1>
     Login
   </h1>
-  <button>Login</button>
+  <button type="submit">Login</button>
+  <div class="error" *ngIf="error">
+    {{ error }}
+  </div>
   <a routerLink="/auth/register">Create account?</a>
 </fitness-auth-form>
