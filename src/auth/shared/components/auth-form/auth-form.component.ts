@@ -23,7 +23,7 @@ export class AuthFormComponent implements OnInit {
   submitted = new EventEmitter<FormGroup>();
 
   auth = this._fb.group({
-    email: [null, Validators.email],
+    email: [null, [Validators.required, Validators.email]],
     password: [null, Validators.required]
   });
 

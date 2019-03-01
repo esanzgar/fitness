@@ -3,8 +3,8 @@
     Register
   </h1>
   <button>Create account</button>
-  <div class="error" *ngIf="error">
-    {{ error }}
+  <div class="error" *ngIf="(error | async) as message">
+    {{ message }}
   </div>
   <a routerLink="/auth/login">Already have an account?</a>
 </fitness-auth-form>
