@@ -2,6 +2,9 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "store": ["src/store/store.service.ts"]
+    },
     "importHelpers": true,
     "strict": true,
     "outDir": "./dist/out-tsc",

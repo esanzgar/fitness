@@ -1,4 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+
+import { User } from "../../../auth/services/auth.service";
 
 @Component({
   selector: "fitness-header",
@@ -6,7 +8,15 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  @Input()
+  user: User | null = null;
+
+  @Output()
+  logout = new EventEmitter<any>();
+
+  logoutUser() {
+    this.logout.emit();
+  }
 
   ngOnInit() {}
 }

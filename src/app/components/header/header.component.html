@@ -1,3 +1,8 @@
-<p>
-  header works!
-</p>
+<div class="app-header">
+  <div class="wrapper">
+    <img src="/img/logo.svg" />
+    <div class="app-header__user-info" *ngIf="user">
+      <span (click)="logoutUser()"></span>
+    </div>
+  </div>
+</div>
