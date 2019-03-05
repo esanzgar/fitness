@@ -5,8 +5,10 @@ import { AuthRoutingModule } from "./auth-routing.module";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
-import { AuthService } from "./services/auth.service";
 import { firebaseConfig } from "../environments/environment";
+
+import { AuthService } from "./services/auth.service";
+import { UserAuthenticatedGuard } from "./guards/user-authenticated.guard";
 
 @NgModule({
   declarations: [],
@@ -16,6 +18,6 @@ import { firebaseConfig } from "../environments/environment";
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule
   ],
-  providers: [AuthService]
+  providers: [AuthService, UserAuthenticatedGuard]
 })
 export class AuthModule {}

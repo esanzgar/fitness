@@ -1,9 +1,17 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy
+} from "@angular/core";
 
 import { User } from "../../../auth/services/auth.service";
 
 @Component({
   selector: "fitness-header",
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.scss"]
 })

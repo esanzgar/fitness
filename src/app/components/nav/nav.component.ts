@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 
 @Component({
   selector: "fitness-nav",
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: "./nav.component.html",
   styleUrls: ["./nav.component.scss"]
 })

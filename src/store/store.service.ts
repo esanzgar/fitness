@@ -8,9 +8,6 @@ export interface Store {
   user: User | null;
 }
 
-type PropStore = keyof Store;
-type PartialStore = Partial<Store>;
-
 const state: Store = {
   user: null
 };
@@ -20,7 +17,7 @@ const state: Store = {
 })
 export class StoreService {
   private subject = new BehaviorSubject<Store>(state);
-  private store = this.subject.asObservable().pipe(distinctUntilChanged());
+  private _store = this.subject.asObservable().pipe(distinctUntilChanged());
 
   constructor() {}
 
@@ -29,7 +26,7 @@ export class StoreService {
   }
 
   select<K extends keyof Store>(prop: K): Observable<Store[K]> {
-    return this.store.pipe(pluck(prop));
+    return this._store.pipe(pluck(prop));
   }
 
   set<K extends keyof Store>(prop: K, newState: Store[K]) {
